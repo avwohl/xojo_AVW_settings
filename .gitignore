@@ -1,0 +1,5 @@
+Build*
+*.xojo_uistate
+*~
+*.debug
+.DS*
