@@ -2,7 +2,14 @@
 Protected Class AVW_settings_printer
 	#tag Method, Flags = &h0
 		Sub outs(print_me as string)
-		  Print(print_me)
+		  #If TargetConsole
+		    Print(print_me)
+		  #Else
+		    // abstract type, default implementation only for consol
+		    // for windowed app, subclass and subclass can find a window 
+		    //  or log file to output to
+		    #Pragma unused print_me
+		  #EndIf
 		End Sub
 	#tag EndMethod
 
