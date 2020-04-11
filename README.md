@@ -1,12 +1,12 @@
 # AVW_settings - get runtime settings for xojo
-### Where to find the latest version of this file:
-[https://github.com/avwohl/xojo_AVW_settings/blob/master/README.md](https://github.com/avwohl/xojo_AVW_settings/blob/master/README.md)
+### Where to find the latest stable version of this file:
+[https://github.com/avwohl/xojo_AVW_settings/blob/stable/README.md](https://github.com/avwohl/xojo_AVW_settings/blob/stable/README.md)
 
 ### Documentation using git and submodules and these libs in xojo:
-[https://github.com/avwohl/xojo_documentation](https://github.com/avwohl/xojo_documentation)
+[https://github.com/avwohl/xojo_documentation/tree/stable](https://github.com/avwohl/xojo_documentation/tree/stable)
 
-### Download this git submodule for settings for xojo:
-[https://github.com/avwohl/xojo_AVW_settings](https://github.com/avwohl/xojo_AVW_settings)
+### Download the stable version of this git submodule for settings for xojo:
+[https://github.com/avwohl/xojo_AVW_settings/tree/stable](https://github.com/avwohl/xojo_AVW_settings/tree/stable)
 
 ## Sample usage
 ### In the app declarations
@@ -42,7 +42,8 @@ connect_time_out_secs:20
 ```
 
 ### Optionally, a defined setting can have a default
-`settings.define_default("connect_to_port",25)`
+`settings.define_default("connect_to_port","25")`
+All settings are stored as strings.  Settings fetched by get_integer() convert the setting to an integer to return it.
 
 ### In your program fetch an integer setting:
 `Var some_int as integer=app.settings.get_integer("connect_to_port")`
