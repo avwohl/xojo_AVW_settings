@@ -1,4 +1,7 @@
-# AVW_settings - get runtime settings for xojo
+# xojo_AVW_settings - get runtime settings for xojo
+
+### Author Aaron Wohl https://github.com/avwohl
+
 ### Where to find the latest stable version of this file:
 [https://github.com/avwohl/xojo_AVW_settings/blob/stable/README.md](https://github.com/avwohl/xojo_AVW_settings/blob/stable/README.md)
 
