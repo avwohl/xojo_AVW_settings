@@ -23,7 +23,7 @@ Protected Class AVW_settings
 
 	#tag Method, Flags = &h0
 		Sub debug_out(printme as string)
-		  #Pragma printme
+		  #Pragma unused printme
 		  
 		End Sub
 	#tag EndMethod
@@ -81,8 +81,8 @@ Protected Class AVW_settings
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub read_file(file_path as string)
-		  the_printer.outs("reading uci_icc_player config :"+file_path)
+		Sub read_file(outer as AVW_util.outputer, file_path as string)
+		  outer.outs("reading uci_icc_player config :"+file_path)
 		  Var input_folder_item As FolderItem=New FolderItem(file_path,FolderItem.pathModes.Native)
 		  Var  parent_path As String=AVW_util.get_parent_path(input_folder_item)
 		  Var line_number_string As String="1"
@@ -117,9 +117,9 @@ Protected Class AVW_settings
 		      Var var_value As String=matcher.SubExpressionString(3)
 		      If var_name="include" Then
 		        Var include_file_name As String=parent_path+var_value
-		        the_printer.outs("#switching from "+file_path+" line #"+line_number_string+" to:"+include_file_name)
-		        read_file(include_file_name)
-		        the_printer.outs("#switching back to "+file_path+" line #"+line_number_string)
+		        outer.outs("#switching from "+file_path+" line #"+line_number_string+" to:"+include_file_name)
+		        read_file(outer,include_file_name)
+		        outer.outs("#switching back to "+file_path+" line #"+line_number_string)
 		        Continue
 		      End If
 		      If append_operator="+" Then
