@@ -13,9 +13,18 @@ Protected Class AVW_settings
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub Constructor(aprinter as AVW_settings_printer)
-		  the_printer=aprinter
+		Sub Constructor()
 		  the_data=New Dictionary
+		  set_eol(Chr(10))
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub debug_out(printme as string)
+		  #Pragma printme_string
+		  
 		End Sub
 	#tag EndMethod
 
@@ -29,6 +38,17 @@ Protected Class AVW_settings
 	#tag Method, Flags = &h1
 		Protected Sub define_default(name as string, val as string)
 		  the_data.value(name)=New AVW_settings_a_setting(True,True,Val)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub for_each_setting(some_iterator as AVW_settings_iterator)
+		  For Each key_variant As Variant In the_data.Keys
+		    Var key As String=key_variant
+		    Var asetting as AVW_settings_a_setting=the_data.lookup(key,Nil)
+		    some_iterator.apply(key,asetting)
+		  Next key_variant
+		  
 		End Sub
 	#tag EndMethod
 
@@ -58,17 +78,6 @@ Protected Class AVW_settings
 		Function has_setting(key as string) As boolean
 		  Return the_data.HasKey(key)
 		End Function
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Sub outs()
-		  For Each key_variant As Variant In the_data.Keys
-		    Var key As String=key_variant
-		    Var asetting as AVW_settings_a_setting=the_data.lookup(key,Nil)
-		    asetting.outs(the_printer,key)
-		  Next key_variant
-		  
-		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
@@ -131,13 +140,20 @@ Protected Class AVW_settings
 		End Sub
 	#tag EndMethod
 
+	#tag Method, Flags = &h0
+		Sub set_eol(some_eol as string)
+		  multi_line_eol=some_eol
+		  
+		End Sub
+	#tag EndMethod
 
-	#tag Property, Flags = &h1
-		Protected the_data As Dictionary
+
+	#tag Property, Flags = &h0
+		multi_line_eol As string
 	#tag EndProperty
 
 	#tag Property, Flags = &h1
-		Protected the_printer As AVW_settings_printer
+		Protected the_data As Dictionary
 	#tag EndProperty
 
 
@@ -180,6 +196,14 @@ Protected Class AVW_settings
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="multi_line_eol"
+			Visible=false
+			Group="Behavior"
+			InitialValue=""
+			Type="string"
 			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior

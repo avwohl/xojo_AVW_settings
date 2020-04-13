@@ -34,6 +34,11 @@ settings.check()
 ```
 # a sample comment
 connect_to_host:foo.com
+# a multi line setting
+# note the use of +:
+login:clear *
+login+:-ch
+login+:+ch 1
 include:common.cfg
 ```
 
@@ -48,12 +53,22 @@ connect_time_out_secs:20
 `settings.define_default("connect_to_port","25")`
 All settings are stored as strings.  Settings fetched by get_integer() convert the setting to an integer to return it.
 
+### If using multi line strings, specify what end of line is used to separate the entries:
+`app.settings.set_eol(Chr(10))`
+The default separator is currently Chr(10).  Although this module has not been tested on windows yet, it may need a CRLF separator.
+
 ### In your program fetch an integer setting:
 `Var some_int as integer=app.settings.get_integer("connect_to_port")`
 
 ### In your program fetch a string setting:
-
 var some_string as string=app.settings.get_string("connect_to_host")`
+
+### To iterate over all the settings:
+Create a subclass of AVW_settings_iterator to do whatever you want to to each setting.  For example to print all settings you might have a subclass with an apply() function to print each setting.
+```
+Var my_iterator as Some_AVW_settings_iterator=New Some_AVW_settings_iterator
+app.settings.for_each_setting(my_iterator)
+```
 
 ### Errors detected at runtime
 The following errors are detected at runtime:

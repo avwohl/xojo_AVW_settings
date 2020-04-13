@@ -77,7 +77,7 @@ Protected Class AVW_settings_a_setting
 			Group="Behavior"
 			InitialValue=""
 			Type="string"
-			EditorType=""
+			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="is_set"
