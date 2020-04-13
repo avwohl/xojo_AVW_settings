@@ -2,8 +2,8 @@
 Protected Class AVW_settings_iterator
 	#tag Method, Flags = &h0
 		Sub apply(key as string, asetting as AVW_settings_a_setting)
-		  #Pragma key
-		  #pragma asetting
+		  #Pragma unused key
+		  #Pragma unused asetting
 		End Sub
 	#tag EndMethod
 

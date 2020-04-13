@@ -23,7 +23,7 @@ Protected Class AVW_settings
 
 	#tag Method, Flags = &h0
 		Sub debug_out(printme as string)
-		  #Pragma printme_string
+		  #Pragma printme
 		  
 		End Sub
 	#tag EndMethod
@@ -204,7 +204,7 @@ Protected Class AVW_settings
 			Group="Behavior"
 			InitialValue=""
 			Type="string"
-			EditorType=""
+			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class
