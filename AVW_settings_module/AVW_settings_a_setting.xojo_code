@@ -8,14 +8,6 @@ Protected Class AVW_settings_a_setting
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
-		Sub outs(the_printer as AVW_settings_printer, keystring as string)
-		  Var outme As String="key="+keystring
-		  outme=outme+" val="+Val
-		  the_printer.outs(outme)
-		End Sub
-	#tag EndMethod
-
 
 	#tag Property, Flags = &h0
 		has_default As Boolean
