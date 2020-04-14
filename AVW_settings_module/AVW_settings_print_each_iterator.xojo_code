@@ -18,7 +18,6 @@ Inherits AVW_settings_iterator
 	#tag Property, Flags = &h1
 		#tag Note
 			Super.Constructor
-			
 		#tag EndNote
 		Protected outer As AVW_util.outputer
 	#tag EndProperty
@@ -62,14 +61,6 @@ Inherits AVW_settings_iterator
 			Visible=true
 			Group="Position"
 			InitialValue="0"
-			Type="Integer"
-			EditorType=""
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="outer"
-			Visible=false
-			Group="Behavior"
-			InitialValue=""
 			Type="Integer"
 			EditorType=""
 		#tag EndViewProperty
