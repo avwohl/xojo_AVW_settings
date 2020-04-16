@@ -16,22 +16,12 @@ Protected Class AVW_settings
 		Sub Constructor()
 		  the_data=New Dictionary
 		  set_eol(Chr(10))
-		  
-		  
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Sub debug_out(printme as string)
-		  #Pragma unused printme
-		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub define(name as string)
 		  the_data.value(name)=New AVW_settings_a_setting(False,False,"")
-		  
 		End Sub
 	#tag EndMethod
 
@@ -48,7 +38,6 @@ Protected Class AVW_settings
 		    Var asetting as AVW_settings_a_setting=the_data.lookup(key,Nil)
 		    some_iterator.apply(key,asetting)
 		  Next key_variant
-		  
 		End Sub
 	#tag EndMethod
 
@@ -143,7 +132,6 @@ Protected Class AVW_settings
 	#tag Method, Flags = &h0
 		Sub set_eol(some_eol as string)
 		  multi_line_eol=some_eol
-		  
 		End Sub
 	#tag EndMethod
 
