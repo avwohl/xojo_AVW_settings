@@ -1,21 +1,24 @@
-# AVW_settings - get runtime settings for xojo
-### Where to find the latest version of this file:
-[https://github.com/avwohl/xojo_AVW_settings/blob/master/README.md](https://github.com/avwohl/xojo_AVW_settings/blob/master/README.md)
+# xojo_AVW_settings - get runtime settings for xojo
+
+### Author Aaron Wohl https://github.com/avwohl
+
+### Where to find the latest stable version of this file:
+[https://github.com/avwohl/xojo_AVW_settings/blob/stable/README.md](https://github.com/avwohl/xojo_AVW_settings/blob/stable/README.md)
 
 ### Documentation using git and submodules and these libs in xojo:
-[https://github.com/avwohl/xojo_documentation](https://github.com/avwohl/xojo_documentation)
+[https://github.com/avwohl/xojo_documentation/tree/stable](https://github.com/avwohl/xojo_documentation/tree/stable)
 
-### Download this git submodule for settings for xojo:
-[https://github.com/avwohl/xojo_AVW_settings](https://github.com/avwohl/xojo_AVW_settings)
+### Download the stable version of this git submodule for settings for xojo:
+[https://github.com/avwohl/xojo_AVW_settings/tree/stable](https://github.com/avwohl/xojo_AVW_settings/tree/stable)
 
 ## Sample usage
 ### In the app declarations
-`Var settings as AVW_settings`\
+`Var settings as AVW_settings_module.AVW_settings`\
 Or create a property of type AVW_settings in the application or some other suitable object.
 
 ### In the app constructor:
 ```
-settings=New AVW_sttings
+settings=New AVW_settings_module.AVW_sttings
 settings.define("connect_to_host")
 settings.define("connect_to_port")
 settings.define("connect_timeout_secs")
@@ -31,6 +34,11 @@ settings.check()
 ```
 # a sample comment
 connect_to_host:foo.com
+# a multi line setting
+# note the use of +:
+login:clear *
+login+:-ch
+login+:+ch 1
 include:common.cfg
 ```
 
@@ -42,14 +50,25 @@ connect_time_out_secs:20
 ```
 
 ### Optionally, a defined setting can have a default
-`settings.define_default("connect_to_port",25)`
+`settings.define_default("connect_to_port","25")`
+All settings are stored as strings.  Settings fetched by get_integer() convert the setting to an integer to return it.
+
+### If using multi line strings, specify what end of line is used to separate the entries:
+`app.settings.set_eol(Chr(10))`
+The default separator is currently Chr(10).  Although this module has not been tested on windows yet, it may need a CRLF separator.
 
 ### In your program fetch an integer setting:
 `Var some_int as integer=app.settings.get_integer("connect_to_port")`
 
 ### In your program fetch a string setting:
-
 var some_string as string=app.settings.get_string("connect_to_host")`
+
+### To iterate over all the settings:
+Create a subclass of AVW_settings_iterator to do whatever you want to to each setting.  For example to print all settings you might have a subclass with an apply() function to print each setting.
+```
+Var my_iterator as Some_AVW_settings_iterator=New Some_AVW_settings_iterator
+app.settings.for_each_setting(my_iterator)
+```
 
 ### Errors detected at runtime
 The following errors are detected at runtime:
