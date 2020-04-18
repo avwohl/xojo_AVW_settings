@@ -18,7 +18,7 @@ Or create a property of type AVW_settings in the application or some other suita
 
 ### In the app constructor:
 ```
-settings=New AVW_settings_module.AVW_sttings
+settings=New AVW_settings_module.AVW_settings
 settings.define("connect_to_host")
 settings.define("connect_to_port")
 settings.define("connect_timeout_secs")
