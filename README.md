@@ -2,14 +2,17 @@
 
 ### Author Aaron Wohl https://github.com/avwohl
 
-### Where to find the latest stable version of this file:
+### Where to find this file:
 [https://github.com/avwohl/xojo_AVW_settings/blob/master/README.md](https://github.com/avwohl/xojo_AVW_settings/blob/master/README.md)
 
 ### Documentation using git and submodules and these libs in xojo:
 [https://github.com/avwohl/xojo_documentation](https://github.com/avwohl/xojo_documentation)
 
-### Download the stable version of this git submodule for settings for xojo:
+### Download this git submodule for settings for xojo:
 [https://github.com/avwohl/xojo_AVW_settings](https://github.com/avwohl/xojo_AVW_settings)
+
+### Download a utility module this module depends on:
+[https://github.com/avwohl/xojo_AVW_utils](https://github.com/avwohl/xojo_AVW_utils)
 
 ## Sample usage
 ### In the app declarations
