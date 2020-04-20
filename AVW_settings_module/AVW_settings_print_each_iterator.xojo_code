@@ -1,8 +1,8 @@
 #tag Class
 Protected Class AVW_settings_print_each_iterator
-Inherits AVW_settings_iterator
+Inherits AVW_settings_module.AVW_settings_iterator
 	#tag Method, Flags = &h0
-		Sub apply(key as string, asetting as AVW_settings_a_setting)
+		Sub apply(key as string, asetting as AVW_settings_module.AVW_settings_a_setting)
 		  #Pragma unused key
 		  #Pragma unused asetting
 		End Sub
